@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>вова</title>
+  <meta charset="UTF-8">
+  <title>Вопрос</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    img {
+      display: none;
+      margin-top: 20px;
+      width: 300px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
+  <h1>Любишь ли ты девочек?</h1>
+  <input type="text" id="answer" placeholder="Напиши ответ...">
+  <button onclick="checkAnswer()">Отправить</button>
 
-   <p>Любишь ли ты девочек?</p>
-   оТВЕТ МОЖЕТ БЫТЬ ТОЛЬКО ОДИН - ДА ИЛИ НЕТ
-   <IMG src="kirill.jpg" alt="Кирилл" width="200"></IMG>
+  <!-- Фото для "да" -->
+  <img id="photoYes" src="zlo.png" alt="Фото для ответа ДА" style="width: 1000px;">
+  <!-- Фото для "нет" -->
+  <img id="photoNo" src="dobro.jpg" alt="Фото для ответа НЕТ" style="width: 1000px;">
 
-   <input type="text" placeholder="Напиши свой ответ...">
-   <button onclick="checkAnswer()">Отправить</button>
-   <script>
-       function checkAnswer() {
-           const userAnswer = document.querySelector('input').value;
-           if (userAnswer.toLowerCase() === 'да') {
-               alert('Жди кирилла!');
-           } else {
-               alert('Кирилл гордится тобой!');
-           }
-       }
-   </script>
+  <script>
+    function checkAnswer() {
+      let input = document.getElementById("answer").value.toLowerCase().trim();
+      let photoYes = document.getElementById("photoYes");
+      let photoNo = document.getElementById("photoNo");
 
+      // Скрываем оба фото перед проверкой
+      photoYes.style.display = "none";
+      photoNo.style.display = "none";
+
+      if (input === "да") {
+        photoYes.style.display = "block"; // показываем фото "да"
+      } else if (input === "нет") {
+        photoNo.style.display = "block"; // показываем фото "нет"
+      } else {
+        alert("Напиши только 'да' или 'нет' 😅");
+      }
+    }
+  </script>
 </body>
 </html>
