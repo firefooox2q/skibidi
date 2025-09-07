@@ -7,8 +7,22 @@
 </head>
 <body>
 
-    <a href="page2.html">Ты любишь девочек?</a> <br> 
+   <p>Любишь ли ты девочек?</p>
+   оТВЕТ МОЖЕТ БЫТЬ ТОЛЬКО ОДИН - ДА ИЛИ НЕТ
+   <IMG src="kirill.jpg" alt="Кирилл" width="200"></IMG>
 
-<video src=""></video>
+   <input type="text" placeholder="Напиши свой ответ...">
+   <button onclick="checkAnswer()">Отправить</button>
+   <script>
+       function checkAnswer() {
+           const userAnswer = document.querySelector('input').value;
+           if (userAnswer.toLowerCase() === 'да') {
+               alert('Жди кирилла!');
+           } else {
+               alert('Кирилл гордится тобой!');
+           }
+       }
+   </script>
+
 </body>
 </html>
